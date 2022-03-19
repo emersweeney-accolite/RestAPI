@@ -1,9 +1,18 @@
 package com.emer.assignment.model;
 
-public interface Coffee {
+public class Coffee implements Drink{
 
-    public String getCategory();
-    public float getPrice();
-    public String getName();
+    private String name;
+    private String category;
+    private float price;
 
+    public Coffee(String name, String category, float price){
+        this.name=name;
+        this.category=category;
+        this.price=price;
+    }
+
+    public String getCategory(){return category;}
+    public float getPrice(){return price;}
+    public String getName(){return name;}
 }

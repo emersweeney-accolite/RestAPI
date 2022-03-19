@@ -1,7 +1,6 @@
 package com.emer.assignment.controller;
 
 import com.emer.assignment.model.Coffee;
-import com.emer.assignment.model.HotCoffee;
 import com.emer.assignment.service.CoffeeService;
 import com.emer.assignment.service.ConcreteCoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +26,17 @@ public class CoffeeController {
         return coffee;
     }
 
-//    @RequestMapping("/coffee")
-////    @ResponseBody
-//    public String getCoffee(@RequestParam(value="name") String name){return "coffee";}
 
     // /coffee-shop/coffees
     // /coffee-shop/coffees?category=Iced
     @GetMapping("/coffees")
     public List<Coffee> getCoffeesByCategory(@RequestParam(value="category", required=false) String category){
         return coffeeService.getCoffeesByCategory(category);
+    }
+
+    @PostMapping("/coffee")
+    public String addCoffee(@RequestParam(value="name") String name){
+        return "coffee added";
     }
 
 }
